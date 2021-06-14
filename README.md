@@ -9,3 +9,7 @@ Udemy course, GraphQL with React: The Complete Developers Guide by Stephen Gride
 
 - Diagram Tool : [Balsamiq Mockups](https://balsamiq.com/)
 - Terminal : Iterm with zShell
+
+## 4. Review of REST-ful Routing
+
+When Rest-ful Routing goes nested and nested it's going to be too complicated.
