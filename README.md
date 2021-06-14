@@ -13,3 +13,9 @@ Udemy course, GraphQL with React: The Complete Developers Guide by Stephen Gride
 ## 4. Review of REST-ful Routing
 
 When Rest-ful Routing goes nested and nested it's going to be too complicated.
+
+## 7. Working with GraphQL 06:02
+
+```
+npm install --save express express-graphql graphql lodash
+```
