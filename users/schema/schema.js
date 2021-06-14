@@ -25,6 +25,13 @@ const RootQuery = new GraphQLObjectType({
       resolve(parentValue, args) {
         return _.find(users, { id: args.id });
       }
+    },
+    userWithAge: {
+      type: UserType,
+      args: { age: { type: GraphQLInt } },
+      resolve(parentValue, args) {
+        return _.find(users, { age: args.age });
+      }
     }
   }
 });
