@@ -37,3 +37,31 @@ npm install --save axios
 ```
 npm install --save-dev nodemon
 ```
+
+### 25. Query Fragments
+
+- Query can have a name, "findCompany"
+- More than one query can be written with arbitrary keys such "apple" and "google"
+- Query Fragment is useful not to repeat the same code
+
+```
+query findCompany {
+  apple: company(id: "1") {
+    ...companyDetails
+  }
+  google: company(id: "2") {
+    ...companyDetails
+  }
+}
+
+fragment companyDetails on Company {
+  id
+  name
+  description
+  users {
+    id
+    firstName
+    age
+  }
+}
+```
