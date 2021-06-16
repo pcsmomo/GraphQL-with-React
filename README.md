@@ -106,3 +106,8 @@ mutation {
 - [Lokka](https://github.com/kadirahq/lokka) : As simple as possible
 - [Apollo Client](https://www.apollographql.com/docs/react/) : Good balance
 - [Relay](https://relay.dev/docs/) : Good performance in bad internet connection like mobile, but Complex in v1.0 (now it has v11)
+
+### 31. Sidenote - Apollo Server vs GraphQL Server
+
+- [express-graphql](https://github.com/graphql/express-graphql)
+- [Apollo Server](https://www.apollographql.com/docs/apollo-server/)
