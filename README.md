@@ -77,3 +77,13 @@ mutation {
   }
 }
 ```
+
+### 28. Do It Yourself - Delete Mutation!
+
+```graphql
+mutation {
+  deleteUser(id: "KVbi0uD") {
+    id
+  }
+}
+```
