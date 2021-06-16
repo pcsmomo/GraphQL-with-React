@@ -87,3 +87,16 @@ mutation {
   }
 }
 ```
+
+### 29. Do It Yourself - Edit Mutation!
+
+```graphql
+mutation {
+  editUser(id: "23", firstName: "Billy", age: 35) {
+    id
+    firstName
+    age
+    company
+  }
+}
+```
