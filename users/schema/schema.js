@@ -50,6 +50,15 @@ const RootQuery = new GraphQLObjectType({
           .get("http://localhost:3000/users")
           .then((resp) => _.find(resp.data, { age: args.age }));
       }
+    },
+    company: {
+      type: CompanyType,
+      args: { id: { type: GraphQLString } },
+      resolve(parentValue, args) {
+        return axios
+          .get(`http://localhost:3000/companies/${args.id}`)
+          .then((resp) => resp.data);
+      }
     }
   }
 });
