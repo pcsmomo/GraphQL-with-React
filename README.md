@@ -111,3 +111,8 @@ mutation {
 
 - [express-graphql](https://github.com/graphql/express-graphql)
 - [Apollo Server](https://www.apollographql.com/docs/apollo-server/)
+
+### 32. The Next App 03:40
+
+- [Lyrical-Graphql Repositor])(https://github.com/stephengrider/lyrical-graphql) \
+  _Must provide mongoLab URI to run server.js_
