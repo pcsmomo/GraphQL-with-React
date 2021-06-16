@@ -20,14 +20,20 @@ When Rest-ful Routing goes nested and nested it's going to be too complicated.
 npm install --save express express-graphql graphql lodash
 ```
 
-### 14. A Realistic Data Source 08:53
+### 14. A Realistic Data Source
 
 ```
-npm install --save json-server
+npm install --save-dev json-server
 ```
 
-### 15. Async Resolve Functions 09:36
+### 15. Async Resolve Functions
 
 ```
 npm install --save axios
+```
+
+### 16. Nodemon Hookup
+
+```
+npm install --save-dev nodemon
 ```
