@@ -25,3 +25,9 @@ npm install --save express express-graphql graphql lodash
 ```
 npm install --save json-server
 ```
+
+### 15. Async Resolve Functions 09:36
+
+```
+npm install --save axios
+```
