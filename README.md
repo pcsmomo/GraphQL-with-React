@@ -44,7 +44,7 @@ npm install --save-dev nodemon
 - More than one query can be written with arbitrary keys such "apple" and "google"
 - Query Fragment is useful not to repeat the same code
 
-```
+```graphql
 query findCompany {
   apple: company(id: "1") {
     ...companyDetails
@@ -59,6 +59,18 @@ fragment companyDetails on Company {
   name
   description
   users {
+    id
+    firstName
+    age
+  }
+}
+```
+
+### 27. NonNull Fields and Mutations
+
+```graphql
+mutation {
+  addUser(firstName: "Noah", age: 30) {
     id
     firstName
     age
