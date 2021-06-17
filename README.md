@@ -116,3 +116,23 @@ mutation {
 
 - [Lyrical-Graphql Repositor])(https://github.com/stephengrider/lyrical-graphql) \
   _Must provide mongoLab URI to run server.js_
+
+### 35. MongoLab Setup 09:05
+
+- Add config.js for my own MONGO_URI
+
+```
+npm uninstall --save webpack html-webpack-plugin webpack-dev-middleware
+```
+
+```
+npm install --save webpack html-webpack-plugin webpack-dev-middleware
+```
+
+```
+npm uninstall --save babel-core babel-loader babel-preset-env babel-preset-react
+```
+
+```
+npm install --save @babel/core babel-loader @babel/preset-env @babel/preset-react
+```
