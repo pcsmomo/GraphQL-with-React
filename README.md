@@ -136,3 +136,37 @@ npm uninstall --save babel-core babel-loader babel-preset-env babel-preset-react
 ```
 npm install --save @babel/core babel-loader @babel/preset-env @babel/preset-react
 ```
+
+### 36. Working Through the Schema 09:45
+
+```graphql
+mutation {
+  addSong(title: "Cold Night") {
+    id
+  }
+}
+```
+
+```graphql
+mutation {
+  addLyricToSong(
+    songId: "60cbdd8a7ae7cc192a0eeec5"
+    content: "Oh my oh my its a cold night"
+  ) {
+    id
+  }
+}
+```
+
+```graphql
+{
+  songs {
+    id
+    title
+    lyrics {
+      id
+      content
+    }
+  }
+}
+```
