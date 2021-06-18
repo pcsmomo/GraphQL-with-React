@@ -25,5 +25,5 @@ module.exports = {
       template: "client/index.html"
     })
   ],
-  mode: "none"
+  mode: "development"
 };
