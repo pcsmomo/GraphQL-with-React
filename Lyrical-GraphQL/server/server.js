@@ -35,4 +35,15 @@ const webpack = require("webpack");
 const webpackConfig = require("../webpack.config.js");
 app.use(webpackMiddleware(webpack(webpackConfig)));
 
+// Common use to use React Router on Express.
+// but bundle.js was create only on "/"" but other path.
+
+// const path = require("path");
+// app.use("/client", express.static("../client"));
+// app.get("*", (req, res) => {
+//   console.log(req.path);
+//   console.log(path.join(__dirname, "../client", "index.html"));
+//   res.sendFile(path.join(__dirname, "../client", "index.html"));
+// });
+
 module.exports = app;
