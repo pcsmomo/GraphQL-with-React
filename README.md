@@ -137,7 +137,7 @@ npm uninstall --save babel-core babel-loader babel-preset-env babel-preset-react
 npm install --save @babel/core babel-loader @babel/preset-env @babel/preset-react
 ```
 
-### 36. Working Through the Schema 09:45
+### 36. Working Through the Schema
 
 ```graphql
 mutation {
