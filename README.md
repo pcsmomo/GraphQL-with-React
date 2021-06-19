@@ -175,4 +175,10 @@ mutation {
 
 #### Fix browser warnings
 
-- [DevTools failed to load SourceMap](https://stackoverflow.com/questions/61767538/devtools-failed-to-load-sourcemap-for-webpack-node-modules-js-map-http-e)
+[DevTools failed to load SourceMap](https://stackoverflow.com/questions/61767538/devtools-failed-to-load-sourcemap-for-webpack-node-modules-js-map-http-e)
+
+#### Remove body parser
+
+Body Parser is now included in the default Express Package (version 4.16+)
+
+#### Change the name expressGraphQL to graphqlHTTP

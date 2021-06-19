@@ -1,8 +1,7 @@
 const express = require("express");
 const models = require("./models");
-const expressGraphQL = require("express-graphql");
+const { graphqlHTTP } = require("express-graphql");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
 const schema = require("./schema/schema");
 const NOAH_MONGO_URI = require("./config");
 
@@ -23,10 +22,9 @@ mongoose.connection
   .once("open", () => console.log("Connected to MongoLab instance."))
   .on("error", (error) => console.log("Error connecting to MongoLab:", error));
 
-app.use(bodyParser.json());
 app.use(
   "/graphql",
-  expressGraphQL({
+  graphqlHTTP({
     schema,
     graphiql: true
   })
