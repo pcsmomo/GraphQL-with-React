@@ -4,23 +4,45 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 import App from "./components/App";
+import Nav from "./components/Nav";
 import SongList from "./components/SongList";
+import SongCreate from "./components/SongCreate";
 
 const client = new ApolloClient({
   uri: "http://localhost:4000/graphql",
   cache: new InMemoryCache()
 });
 
-const Root = () => {
-  return (
-    <ApolloProvider client={client}>
-      <App>
-        <Router>
-          <Route path="/" component={SongList} />
-        </Router>
-      </App>
-    </ApolloProvider>
-  );
-};
+class DebugRouter extends Router {
+  constructor(props) {
+    super(props);
+    console.log("initial history is: ", JSON.stringify(this.history, null, 2));
+    this.history.listen((location, action) => {
+      console.log(
+        `The current URL is ${location.pathname}${location.search}${location.hash}`
+      );
+      console.log(
+        `The last navigation action was ${action}`,
+        JSON.stringify(this.history, null, 2)
+      );
+    });
+  }
+}
+
+class Root extends React.Component {
+  render() {
+    return (
+      <ApolloProvider client={client}>
+        <App>
+          <DebugRouter>
+            <Nav />
+            <Route exact path="/" component={SongList} />
+            <Route path="/song/new" component={SongCreate} />
+          </DebugRouter>
+        </App>
+      </ApolloProvider>
+    );
+  }
+}
 
 ReactDOM.render(<Root />, document.querySelector("#root"));
