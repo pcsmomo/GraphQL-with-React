@@ -188,3 +188,14 @@ Body Parser is now included in the default Express Package (version 4.16+)
 ```
 npm uninstall --save react-router && npm install --save react-router-dom
 ```
+
+### 46. Mutations in React
+
+```graphql
+mutation {
+  addSong(title: "Dog Call") {
+    id
+    title
+  }
+}
+```
