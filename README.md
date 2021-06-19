@@ -182,3 +182,9 @@ mutation {
 Body Parser is now included in the default Express Package (version 4.16+)
 
 #### Change the name expressGraphQL to graphqlHTTP
+
+### 44. Adding React Router
+
+```
+npm uninstall --save react-router && npm install --save react-router-dom
+```
