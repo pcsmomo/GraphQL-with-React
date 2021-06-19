@@ -3,12 +3,32 @@ import { gql, useMutation } from "@apollo/client";
 
 const SongCreate = () => {
   const [title, setTitle] = useState("");
-  const [addSong, { data }] = useMutation(ADD_SONG);
+  const [addSong, response] = useMutation(ADD_SONG, {
+    update(cache, { data: { addSong } }) {
+      cache.modify({
+        fields: {
+          songs(existingSongs = []) {
+            const newSongRef = cache.writeFragment({
+              data: addSong,
+              fragment: gql`
+                fragment NewSong on SongType {
+                  id
+                  title
+                }
+              `
+            });
+            return [...existingSongs, newSongRef];
+          }
+        }
+      });
+    }
+  });
 
   const onSubmit = (event) => {
     event.preventDefault();
     addSong({ variables: { title } });
     setTitle("");
+    console.log(response);
   };
 
   return (

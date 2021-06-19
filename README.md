@@ -199,3 +199,7 @@ mutation {
   }
 }
 ```
+
+### 48. Defining Query Variables in React
+
+[Making all other cache updates](https://www.apollographql.com/docs/react/data/mutations/)
