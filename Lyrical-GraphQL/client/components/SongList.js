@@ -1,14 +1,13 @@
-import React, { Component } from "react";
-import gql from "graphql-tag";
-import { graphql } from "react-apollo";
+import React from "react";
+import { useQuery, gql } from "@apollo/client";
 
-class SongList extends Component {
-  render() {
-    return <div>SongList</div>;
-  }
-}
+const SongList = () => {
+  const response = useQuery(fetchSongs);
+  console.log(response);
+  return <div>SongList</div>;
+};
 
-const query = gql`
+const fetchSongs = gql`
   {
     songs {
       title
@@ -16,4 +15,4 @@ const query = gql`
   }
 `;
 
-export default graphql(query)(SongList);
+export default SongList;
