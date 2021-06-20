@@ -222,3 +222,19 @@ Query Variables
 ### 55. Refetching a Query
 
 [Apollo Client delete Item from cache](https://stackoverflow.com/questions/63192774/apollo-client-delete-item-from-cache)
+
+### 58. Fetching Individual Records
+
+```graphql
+query FetchSong($id: ID!) {
+  song(id: $id) {
+    id
+    title
+  }
+}
+
+Query Variables
+{
+  "id": "60cbdd8a7ae7cc192a0eeec5"
+}
+```
