@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import { useHistory } from "react-router-dom";
+import fetchSongsQuery from "../queries/fetchSongs";
 
 const SongCreate = () => {
   const history = useHistory();
   const [title, setTitle] = useState("");
 
+  // // 1st way to update cache, it only updates the cache.
   const [addSong, response] = useMutation(ADD_SONG, {
     update(cache, { data: { addSong } }) {
       cache.modify({
@@ -26,6 +28,11 @@ const SongCreate = () => {
       });
     }
   });
+
+  // 2nd way to update cache, but it executes the fetching query once more
+  // const [addSong, response] = useMutation(ADD_SONG, {
+  //   refetchQueries: [{ query: fetchSongsQuery }]
+  // });
 
   const onSubmit = (event) => {
     event.preventDefault();

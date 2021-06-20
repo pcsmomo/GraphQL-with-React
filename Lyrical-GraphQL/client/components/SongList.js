@@ -1,9 +1,10 @@
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
 import { Link } from "react-router-dom";
+import fetchSongsQuery from "../queries/fetchSongs";
 
 const SongList = () => {
-  const { data, loading } = useQuery(fetchSongs);
+  const { data, loading } = useQuery(fetchSongsQuery);
 
   if (loading) return <div>Loading</div>;
 
@@ -26,14 +27,5 @@ const SongList = () => {
     </div>
   );
 };
-
-const fetchSongs = gql`
-  {
-    songs {
-      id
-      title
-    }
-  }
-`;
 
 export default SongList;
