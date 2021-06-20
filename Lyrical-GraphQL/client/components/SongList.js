@@ -31,7 +31,7 @@ const SongList = () => {
       return (
         <li key={id} className="collection-item">
           {title}
-          <i className="material-icons right" onClick={() => onSongDelete(id)}>
+          <i className="material-icons" onClick={() => onSongDelete(id)}>
             delete
           </i>
         </li>
