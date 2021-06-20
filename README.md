@@ -238,3 +238,22 @@ Query Variables
   "id": "60cbdd8a7ae7cc192a0eeec5"
 }
 ```
+
+### Switch from "react-router-dom"
+
+Switch prevents accessing two path at once.
+For example, "/songs/new" satisfies both Route.
+
+```javascript
+<Route path="/songs/new" component={SongCreate} />
+<Route path="/songs/:id" component={SongDetail} />
+```
+
+↓
+
+```javascript
+<Switch>
+  <Route path="/songs/new" component={SongCreate} />
+  <Route path="/songs/:id" component={SongDetail} />
+</Switch>
+```

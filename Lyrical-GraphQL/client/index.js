@@ -1,7 +1,7 @@
 import "./style/style.css";
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 import App from "./components/App";
@@ -38,9 +38,11 @@ class Root extends React.Component {
         <App>
           <DebugRouter>
             <Nav />
-            <Route exact path="/" component={SongList} />
-            <Route path="/songs/new" component={SongCreate} />
-            <Route path="/songs/:id" component={SongDetail} />
+            <Switch>
+              <Route exact path="/" component={SongList} />
+              <Route path="/songs/new" component={SongCreate} />
+              <Route path="/songs/:id" component={SongDetail} />
+            </Switch>
           </DebugRouter>
         </App>
       </ApolloProvider>
