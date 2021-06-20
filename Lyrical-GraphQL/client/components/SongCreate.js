@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import { useHistory } from "react-router-dom";
-import fetchSongsQuery from "../queries/fetchSongs";
+// import fetchSongsQuery from "../queries/fetchSongs";
 
 const SongCreate = () => {
   const history = useHistory();
@@ -10,6 +10,7 @@ const SongCreate = () => {
   // // 1st way to update cache, it only updates the cache.
   const [addSong, response] = useMutation(ADD_SONG, {
     update(cache, { data: { addSong } }) {
+      console.log(addSong);
       cache.modify({
         fields: {
           songs(existingSongs = []) {

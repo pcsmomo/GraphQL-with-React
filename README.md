@@ -207,7 +207,7 @@ mutation {
 ### 52. Deletion by Mutation
 
 ```graphql
-mutation DeleteSong($id: ID) {
+mutation DeleteSong($id: ID!) {
   deleteSong(id: $id) {
     id
   }
