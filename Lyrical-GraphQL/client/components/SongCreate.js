@@ -48,6 +48,7 @@ const SongCreate = () => {
         <input
           onChange={(event) => setTitle(event.target.value)}
           value={title}
+          autoFocus
         />
         <button>Submit</button>
       </form>
