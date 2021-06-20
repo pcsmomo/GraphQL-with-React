@@ -6,13 +6,16 @@ import FETCH_SONG from "../queries/fetchSong";
 const SongDetail = () => {
   const { id } = useParams();
   const { data, loading } = useQuery(FETCH_SONG, { variables: { id } });
-  console.log(data);
 
-  if (loading) return <div>Loading</div>;
+  if (loading) return <div>Loading...</div>;
+
+  const {
+    song: { title }
+  } = data;
 
   return (
     <div>
-      <h3>Song Detail</h3>
+      <h3>{title}</h3>
     </div>
   );
 };
