@@ -10,7 +10,20 @@ const SongList = () => {
   if (loading) return <div>Loading</div>;
 
   const onSongDelete = (id) => {
-    deleteSong({ variables: { id } });
+    deleteSong({
+      variables: { id },
+      update(cache) {
+        cache.modify({
+          fields: {
+            songs(existingSongs, { readField }) {
+              return existingSongs.filter(
+                (song) => id !== readField("id", song)
+              );
+            }
+          }
+        });
+      }
+    });
   };
 
   const renderSongs = () => {

@@ -218,3 +218,7 @@ Query Variables
   "id": "60ce94dd025ce15d403879a7"
 }
 ```
+
+### 55. Refetching a Query
+
+[Apollo Client delete Item from cache](https://stackoverflow.com/questions/63192774/apollo-client-delete-item-from-cache)
