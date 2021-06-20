@@ -1,10 +1,10 @@
 import React from "react";
 import { useQuery, gql, useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
-import fetchSongsQuery from "../queries/fetchSongs";
+import FETCH_SONGS from "../queries/fetchSongs";
 
 const SongList = () => {
-  const { data, loading } = useQuery(fetchSongsQuery);
+  const { data, loading } = useQuery(FETCH_SONGS);
   const [deleteSong] = useMutation(DELETE_SONG);
 
   if (loading) return <div>Loading</div>;
