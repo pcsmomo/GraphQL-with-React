@@ -203,3 +203,18 @@ mutation {
 ### 48. Defining Query Variables in React
 
 [Making all other cache updates](https://www.apollographql.com/docs/react/data/mutations/)
+
+### 52. Deletion by Mutation
+
+```graphql
+mutation DeleteSong($id: ID) {
+  deleteSong(id: $id) {
+    id
+  }
+}
+
+Query Variables
+{
+  "id": "60ce94dd025ce15d403879a7"
+}
+```
