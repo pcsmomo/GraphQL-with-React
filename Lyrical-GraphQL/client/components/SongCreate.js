@@ -10,7 +10,6 @@ const SongCreate = () => {
   // // 1st way to update cache, it only updates the cache.
   const [addSong, response] = useMutation(ADD_SONG, {
     update(cache, { data: { addSong } }) {
-      console.log(addSong);
       cache.modify({
         fields: {
           songs(existingSongs = []) {
@@ -39,7 +38,6 @@ const SongCreate = () => {
     event.preventDefault();
     addSong({ variables: { title } }).then(() => history.push("/"));
     setTitle("");
-    console.log(response);
   };
 
   return (

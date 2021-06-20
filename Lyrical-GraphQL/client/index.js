@@ -39,8 +39,8 @@ class Root extends React.Component {
           <DebugRouter>
             <Nav />
             <Route exact path="/" component={SongList} />
-            <Route exact path="/songs/new" component={SongCreate} />
-            <Route exact path="/songs/:id" component={SongDetail} />
+            <Route path="/songs/new" component={SongCreate} />
+            <Route path="/songs/:id" component={SongDetail} />
           </DebugRouter>
         </App>
       </ApolloProvider>
