@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { gql, useMutation } from "@apollo/client";
+import { useHistory } from "react-router-dom";
 
 const SongCreate = () => {
+  const history = useHistory();
   const [title, setTitle] = useState("");
+
   const [addSong, response] = useMutation(ADD_SONG, {
     update(cache, { data: { addSong } }) {
       cache.modify({
@@ -26,7 +29,7 @@ const SongCreate = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    addSong({ variables: { title } });
+    addSong({ variables: { title } }).then(() => history.push("/"));
     setTitle("");
     console.log(response);
   };

@@ -10,7 +10,7 @@ const Nav = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/song/new">New Song</Link>
+            <Link to="/songs/new">New Song</Link>
           </li>
         </ul>
       </div>
