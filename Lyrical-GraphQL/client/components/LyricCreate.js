@@ -3,11 +3,11 @@ import { gql, useMutation } from "@apollo/client";
 
 const LyricCreate = ({ songId }) => {
   const [content, setContent] = useState("");
-  const [AddLyricToSong] = useMutation(ADD_LYRIC_TO_SONG);
+  const [addLyricToSong] = useMutation(ADD_LYRIC_TO_SONG);
 
   const onSubmit = (event) => {
     event.preventDefault();
-    AddLyricToSong({
+    addLyricToSong({
       variables: {
         content,
         songId
@@ -31,6 +31,7 @@ const ADD_LYRIC_TO_SONG = gql`
     addLyricToSong(songId: $songId, content: $content) {
       id
       lyrics {
+        id
         content
       }
     }
