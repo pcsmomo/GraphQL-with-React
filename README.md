@@ -265,3 +265,41 @@ For example, "/songs/new" satisfies both Route.
 ```
 npm install --save @apollo/client axios @babel/core babel-loader @babel/preset-env @babel/preset-react bcrypt connect-mongo express express-graphql express-session graphql html-webpack-plugin lodash mongoose passport passport-local react react-dom react-router webpack webpack-dev-middleware nodemon
 ```
+
+### 84. Delegating to the Auth Service
+
+GraphQL expects to see Promise for dealing with any asynchronous code,  
+But Passport has no built-in support for Promise  
+That is why it has to be like this.
+
+```js
+// After the user is created, it is provided to the 'req.logIn' function.
+// This is apart of Passport JS.
+// Notice the Promise created in the second 'then' statement.
+// This is done because Passport only supports callbacks,
+// while GraphQL only supports promises for async code!  Awkward!
+function signup({ email, password, req }) {
+  const user = new User({ email, password });
+  if (!email || !password) {
+    throw new Error("You must provide an email and password.");
+  }
+
+  return User.findOne({ email })
+    .then((existingUser) => {
+      if (existingUser) {
+        throw new Error("Email in use");
+      }
+      return user.save();
+    })
+    .then((user) => {
+      return new Promise((resolve, reject) => {
+        req.logIn(user, (err) => {
+          if (err) {
+            reject(err);
+          }
+          resolve(user);
+        });
+      });
+    });
+}
+```
