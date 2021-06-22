@@ -1,19 +1,24 @@
 import React from "react";
-import { gql } from "@apollo/client";
+import { gql, useMutation } from "@apollo/client";
 
 const LyricList = ({ lyrics }) => {
+  const [likeLyric] = useMutation(LIKE_LYRIC);
+
   const onLike = (id) => {
-    console.log(id);
+    likeLyric({
+      variables: { id }
+    });
   };
 
   const renderLyrics = () => {
-    return lyrics.map(({ id, content }) => {
+    return lyrics.map(({ id, content, likes }) => {
       return (
         <li key={id} className="collection-item">
           {content}
           <i className="material-icons" onClick={() => onLike(id)}>
             thumb_up
           </i>
+          {likes}
         </li>
       );
     });
