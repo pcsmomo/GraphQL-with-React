@@ -1,11 +1,18 @@
 import React, { useState } from "react";
-import { gql } from "@apollo/client";
+import { gql, useMutation } from "@apollo/client";
 
-const LyricCreate = () => {
+const LyricCreate = ({ songId }) => {
   const [content, setContent] = useState("");
+  const [AddLyricToSong] = useMutation(ADD_LYRIC_TO_SONG);
 
   const onSubmit = (event) => {
     event.preventDefault();
+    AddLyricToSong({
+      variables: {
+        content,
+        songId
+      }
+    }).then(() => setContent(""));
   };
 
   return (

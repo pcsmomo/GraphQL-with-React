@@ -17,7 +17,7 @@ const SongDetail = () => {
   return (
     <div>
       <h3>{title}</h3>
-      <LyricCreate />
+      <LyricCreate songId={id} />
     </div>
   );
 };
