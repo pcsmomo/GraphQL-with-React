@@ -15,10 +15,12 @@ const LyricList = ({ lyrics }) => {
       return (
         <li key={id} className="collection-item">
           {content}
-          <i className="material-icons" onClick={() => onLike(id)}>
-            thumb_up
-          </i>
-          {likes}
+          <div className="vote-box">
+            <i className="material-icons" onClick={() => onLike(id)}>
+              thumb_up
+            </i>
+            {likes}
+          </div>
         </li>
       );
     });
