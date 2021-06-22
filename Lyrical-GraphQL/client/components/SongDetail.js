@@ -12,13 +12,13 @@ const SongDetail = () => {
   if (loading) return <div>Loading...</div>;
 
   const {
-    song: { title }
+    song: { title, lyrics }
   } = data;
 
   return (
     <div>
       <h3>{title}</h3>
-      <LyricList />
+      <LyricList lyrics={lyrics} />
       <LyricCreate songId={id} />
     </div>
   );
