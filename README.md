@@ -257,3 +257,11 @@ For example, "/songs/new" satisfies both Route.
   <Route path="/songs/:id" component={SongDetail} />
 </Switch>
 ```
+
+### 79. Boilerplate Setup
+
+#### Install updated node modules
+
+```
+npm install --save @apollo/client axios @babel/core babel-loader @babel/preset-env @babel/preset-react bcrypt connect-mongo express express-graphql express-session graphql html-webpack-plugin lodash mongoose passport passport-local react react-dom react-router webpack webpack-dev-middleware nodemon
+```
