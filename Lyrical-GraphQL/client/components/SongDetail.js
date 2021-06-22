@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import FETCH_SONG from "../queries/fetchSong";
 import LyricCreate from "./LyricCreate";
+import LyricList from "./LyricList";
 
 const SongDetail = () => {
   const { id } = useParams();
@@ -17,6 +18,7 @@ const SongDetail = () => {
   return (
     <div>
       <h3>{title}</h3>
+      <LyricList />
       <LyricCreate songId={id} />
     </div>
   );
