@@ -1,4 +1,5 @@
 import React from "react";
+import { gql } from "@apollo/client";
 
 const LyricList = ({ lyrics }) => {
   const onLike = (id) => {
@@ -20,5 +21,14 @@ const LyricList = ({ lyrics }) => {
 
   return <ul className="collection">{renderLyrics()}</ul>;
 };
+
+const LIKE_LYRIC = gql`
+  mutation LikeLyric($id: ID) {
+    likeLyric(id: $id) {
+      id
+      likes
+    }
+  }
+`;
 
 export default LyricList;
