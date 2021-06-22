@@ -4,9 +4,17 @@ import { gql, useMutation } from "@apollo/client";
 const LyricList = ({ lyrics }) => {
   const [likeLyric] = useMutation(LIKE_LYRIC);
 
-  const onLike = (id) => {
+  const onLike = (id, likes) => {
     likeLyric({
-      variables: { id }
+      variables: { id },
+      optimisticResponse: {
+        // __typename: "Mutation",  // optional now
+        likeLyric: {
+          __typename: "LyricType",
+          id,
+          likes: likes + 1
+        }
+      }
     });
   };
 
@@ -16,7 +24,7 @@ const LyricList = ({ lyrics }) => {
         <li key={id} className="collection-item">
           {content}
           <div className="vote-box">
-            <i className="material-icons" onClick={() => onLike(id)}>
+            <i className="material-icons" onClick={() => onLike(id, likes)}>
               thumb_up
             </i>
             {likes}
