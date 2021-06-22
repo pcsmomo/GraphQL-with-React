@@ -10,6 +10,7 @@ const UserSchema = new Schema({
   password: String
 });
 
+const saltRounds = 10;
 // The user's password is never saved in plain text.  Prior to saving the
 // user model, we 'salt' and 'hash' the users password.  This is a one way
 // procedure that modifies the password - the plain text password cannot be
@@ -20,7 +21,7 @@ UserSchema.pre("save", function save(next) {
   if (!user.isModified("password")) {
     return next();
   }
-  bcrypt.genSalt(10, (err, salt) => {
+  bcrypt.genSalt(saltRounds, (err, salt) => {
     if (err) {
       return next(err);
     }
