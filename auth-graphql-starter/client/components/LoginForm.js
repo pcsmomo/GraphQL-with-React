@@ -1,13 +1,19 @@
 import React from "react";
-import AuthForm from "./AuthForm";
 import { useMutation } from "@apollo/client";
+
+import AuthForm from "./AuthForm";
+
 import LOGIN from "../mutations/Login";
+import CURRENT_USER from "../queries/CurrentUser";
 
 const LoginForm = () => {
   const [login] = useMutation(LOGIN);
 
   const submit = ({ email, password }) => {
-    login({ variables: { email, password } });
+    login({
+      variables: { email, password },
+      refetchQueries: [{ query: CURRENT_USER }]
+    });
   };
 
   return (
