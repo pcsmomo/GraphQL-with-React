@@ -6,7 +6,23 @@ import LOGOUT from "../mutations/Logout";
 
 const Header = () => {
   const { data, loading } = useQuery(CURRENT_USER);
-  const [logout] = useMutation(LOGOUT);
+  // 1st way: refetchQuery
+  const [logout] = useMutation(LOGOUT, {
+    refetchQueries: [{ query: CURRENT_USER }]
+  });
+
+  // 2nd way: Hard write, but once more requesting
+  // const [logout] = useMutation(LOGOUT, {
+  //   update(cache) {
+  //     cache.modify({
+  //       fields: {
+  //         user() {
+  //           return null;
+  //         }
+  //       }
+  //     });
+  //   }
+  // });
 
   const onLogoutClick = () => {
     logout();
