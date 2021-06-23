@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const AuthForm = ({ submit }) => {
+const AuthForm = ({ errors, submit }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -28,6 +28,13 @@ const AuthForm = ({ submit }) => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
+
+        <div className="errors">
+          {errors.map((error) => (
+            <div key={error}>{error}</div>
+          ))}
+        </div>
+
         <button className="btn">Submit</button>
       </form>
     </div>
