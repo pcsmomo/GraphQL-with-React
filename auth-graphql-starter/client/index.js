@@ -6,10 +6,12 @@ import {
   InMemoryCache,
   createHttpLink
 } from "@apollo/client";
-import { Router, Route } from "react-router";
+import { Router, Route, Switch } from "react-router";
 import { createBrowserHistory } from "history";
 
 import App from "./components/App";
+import Header from "./components/Header";
+import LoginForm from "./components/LoginForm";
 
 // const link = createHttpLink({
 //   uri: "/graphql",
@@ -36,7 +38,11 @@ const Root = () => {
   return (
     <ApolloProvider client={client}>
       <Router history={history}>
-        <Route path="/" component={App}></Route>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={App} />
+          <Route path="/login" component={LoginForm} />
+        </Switch>
       </Router>
     </ApolloProvider>
   );
