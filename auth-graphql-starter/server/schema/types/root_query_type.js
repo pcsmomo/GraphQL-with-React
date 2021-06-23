@@ -1,16 +1,11 @@
 const graphql = require("graphql");
-const { GraphQLObjectType, GraphQLString } = graphql;
+const { GraphQLObjectType, GraphQLID } = graphql;
 
 const RootQueryType = new GraphQLObjectType({
   name: "RootQueryType",
-  fields: () => ({
-    dummyId: {
-      dummyText: { type: GraphQLString },
-      resolve() {
-        return "dummy";
-      }
-    }
-  })
+  fields: {
+    dummyField: { type: GraphQLID }
+  }
 });
 
 module.exports = RootQueryType;

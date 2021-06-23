@@ -303,3 +303,13 @@ function signup({ email, password, req }) {
     });
 }
 ```
+
+### 85. Testing Signup
+
+```graphql
+mutation {
+  signup(email: "test@test.com", password: "password") {
+    email
+  }
+}
+```
