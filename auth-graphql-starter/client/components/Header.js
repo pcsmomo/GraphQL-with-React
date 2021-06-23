@@ -3,14 +3,19 @@ import { useQuery } from "@apollo/client";
 import query from "../queries/CurrentUser";
 
 const Header = () => {
-  // const { data, loading } = useQuery(query);
-  const queryRes = useQuery(query);
-  console.log(queryRes);
-  const { data, loading } = queryRes;
+  const { data, loading } = useQuery(query);
 
-  if (loading) return <div>Loading...</div>;
+  const renderButtons = () => {
+    if (loading) return <div />;
 
-  return <div>Header</div>;
+    if (data.user) {
+      return <div>Logout</div>;
+    } else {
+      return <div>You're not signed in</div>;
+    }
+  };
+
+  return <nav className="nav-wrapper purple lighten-3">{renderButtons()}</nav>;
 };
 
 export default Header;
