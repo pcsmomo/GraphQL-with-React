@@ -13,6 +13,8 @@ const LoginForm = () => {
     login({
       variables: { email, password },
       refetchQueries: [{ query: CURRENT_USER }]
+    }).catch((res) => {
+      const errors = res.graphQLErrors.map((error) => error.message);
     });
   };
 
