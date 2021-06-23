@@ -1,5 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
+import { Link } from "react-router-dom";
 import query from "../queries/CurrentUser";
 
 const Header = () => {
@@ -11,11 +12,27 @@ const Header = () => {
     if (data.user) {
       return <div>Logout</div>;
     } else {
-      return <div>You're not signed in</div>;
+      return (
+        <div>
+          <li>
+            <Link to="/signup">Signup</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        </div>
+      );
     }
   };
 
-  return <nav className="nav-wrapper purple lighten-3">{renderButtons()}</nav>;
+  return (
+    <nav className="nav-wrapper purple lighten-3">
+      <Link to="/" className="brand-logo left">
+        Home
+      </Link>
+      <ul className="right">{renderButtons()}</ul>
+    </nav>
+  );
 };
 
 export default Header;
