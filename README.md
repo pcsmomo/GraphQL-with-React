@@ -323,3 +323,13 @@ mutation {
   }
 }
 ```
+
+### 87. The Login Mutation
+
+```graphql
+mutation {
+  login(email: "test@test.com", password: "password") {
+    email
+  }
+}
+```
