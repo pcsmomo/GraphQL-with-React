@@ -1,13 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import {
+  ApolloClient,
+  ApolloProvider,
+  InMemoryCache,
+  createHttpLink
+} from "@apollo/client";
 import { Router, Route } from "react-router";
 import { createBrowserHistory } from "history";
 
 import App from "./components/App";
 
+// const link = createHttpLink({
+//   uri: "/graphql",
+//   credentials: "same-origin"
+// });
+
 const client = new ApolloClient({
-  uri: "http://localhost:4000/graphql",
+  uri: "/graphql",
+  credentials: "same-origin",
   cache: new InMemoryCache({
     typePolicies: {
       user: {
@@ -16,6 +27,7 @@ const client = new ApolloClient({
       }
     }
   })
+  // link,
 });
 
 const history = createBrowserHistory();
