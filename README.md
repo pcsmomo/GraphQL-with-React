@@ -313,3 +313,13 @@ mutation {
   }
 }
 ```
+
+### 86. The Logout Mutation
+
+```graphql
+mutation {
+  logout {
+    email
+  }
+}
+```
