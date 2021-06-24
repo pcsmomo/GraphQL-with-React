@@ -12,8 +12,8 @@ import { createBrowserHistory } from "history";
 import App from "./components/App";
 import Header from "./components/Header";
 import LoginForm from "./components/LoginForm";
-import Signup from "./components/SignupForm";
 import SingupForm from "./components/SignupForm";
+import Dashboard from "./components/Dashboard";
 
 // const link = createHttpLink({
 //   uri: "/graphql",
@@ -45,6 +45,7 @@ const Root = () => {
           <Route exact path="/" component={App} />
           <Route path="/login" component={LoginForm} />
           <Route path="/signup" component={SingupForm} />
+          <Route path="/dashboard" component={Dashboard} />
         </Switch>
       </Router>
     </ApolloProvider>
