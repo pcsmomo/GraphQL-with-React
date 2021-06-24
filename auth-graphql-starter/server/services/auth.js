@@ -33,7 +33,7 @@ passport.use(
         return done(err);
       }
       if (!user) {
-        return done(null, false, "Invalid Credentials");
+        return done(null, false, "Invalid Credentials.");
       }
       user.comparePassword(password, (err, isMatch) => {
         if (err) {
@@ -65,7 +65,7 @@ function signup({ email, password, req }) {
   return User.findOne({ email })
     .then((existingUser) => {
       if (existingUser) {
-        throw new Error("Email in use");
+        throw new Error("Email in use.");
       }
       return user.save();
     })
