@@ -9,7 +9,7 @@ export default (WrappedComponent) => {
     console.log(props);
     const history = useHistory();
 
-    // ComponentDidMount
+    // ComponentWillUpdate
     useEffect(() => {
       const {
         data: { loading, user }
@@ -18,7 +18,7 @@ export default (WrappedComponent) => {
         console.log("did it work?");
         history.push("/login");
       }
-    }, []);
+    });
 
     return <WrappedComponent {...props} />;
   };
