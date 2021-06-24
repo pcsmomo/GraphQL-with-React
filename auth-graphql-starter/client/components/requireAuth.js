@@ -4,12 +4,24 @@ import { useHistory } from "react-router-dom";
 
 import CURRENT_USER from "../queries/CurrentUser";
 
-const RequireAuth = (props) => {
-  console.log(props);
-  const history = useHistory();
-  useEffect(() => {
-    if (!props.isloading && !props.data.user) history.push("/login");
-  }, []);
-};
+export default (WrappedComponent) => {
+  const RequireAuth = (props) => {
+    console.log(props);
+    const history = useHistory();
 
-export default graphql(CURRENT_USER)(RequireAuth);
+    // ComponentDidMount
+    useEffect(() => {
+      const {
+        data: { loading, user }
+      } = props;
+      if (!loading && !user) {
+        console.log("did it work?");
+        history.push("/login");
+      }
+    }, []);
+
+    return <WrappedComponent {...props} />;
+  };
+
+  return graphql(CURRENT_USER)(RequireAuth);
+};
