@@ -1,9 +1,16 @@
 # GraphQL-with-React Summary
 
-Udemy course, GraphQL with React: The Complete Developers Guide by Stephen Grider
+GraphQL with React: The Complete Developers Guide by Stephen Grider
 
 - Node : v14.15.4
 - NPM : 6.14.10
+
+---
+
+## Details
+
+<details open>
+  <summary>Click to Contract/Expend</summary>
 
 ### 1. Introduction
 
@@ -269,8 +276,8 @@ npm install --save @apollo/client axios @babel/core babel-loader @babel/preset-e
 ### 84. Delegating to the Auth Service
 
 GraphQL expects to see Promise for dealing with any asynchronous code,  
-But Passport has no built-in support for Promise  
-That is why it has to be like this.
+ But Passport has no built-in support for Promise  
+ That is why it has to be like this.
 
 ```js
 // After the user is created, it is provided to the 'req.logIn' function.
@@ -343,3 +350,18 @@ npm install --save react-router-dom
 ### 109. Fixing the Login Process
 
 Implement componentWillUpdate with react hooks
+
+</details>
+
+---
+
+## What I have adjusted from the course
+
+- Upgraded all node modules up to date
+- Replaced all Class Components to Functional Components
+- Used react hooks
+
+## Next Step
+
+Build "Daily Check List" App \
+Combine **GraphlQL with React** and **Complete React Developer**
